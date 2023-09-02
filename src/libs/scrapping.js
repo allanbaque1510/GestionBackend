@@ -3,13 +3,13 @@ import puppeteer from "puppeteer";
 export const busqueda=async(req)=>{
     
     const parametro = req+" icon"
-    const browser = await puppeteer.launch({ 
+    const browser = await puppeteer.launch({headless: "new",
      args: ['--no-sandbox', '--disable-setuid-sandbox'] ,ignoreDefaultArgs: ['--disable-extensions']})
     const page = await browser.newPage()
     await page.goto("https://images.google.com/")
     await page.type('#APjFqb',parametro)
     await page.click('button.Tg7LZd')
-    await page.waitForSelector('img.Q4LuWd');
+    await page.waitForSelector('img.rg_i.Q4LuWd');
     await page.click('img.rg_i.Q4LuWd')
     await page.waitForSelector('img.r48jcc.pT0Scc');
     const result = await page.evaluate(()=>{
