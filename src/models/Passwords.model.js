@@ -29,11 +29,6 @@ const  passwSchema = new  mongoose.Schema({
         required:false,
         trim:true,
     },
-    imagen:{
-        type:String,
-        required:true,
-        trim:true,
-    },
     status:{
         type:Number,
         required:true,
