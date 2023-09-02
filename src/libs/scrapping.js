@@ -9,7 +9,7 @@ export const busqueda=async(req)=>{
     await page.goto("https://images.google.com/")
     await page.type('#APjFqb',parametro)
     await page.click('button.Tg7LZd')
-    await page.waitForSelector('img.rg_i.Q4LuWd');
+    await page.waitForSelector('img.Q4LuWd');
     await page.click('img.rg_i.Q4LuWd')
     await page.waitForSelector('img.r48jcc.pT0Scc');
     const result = await page.evaluate(()=>{
