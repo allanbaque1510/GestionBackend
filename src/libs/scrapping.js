@@ -4,7 +4,7 @@ export const busqueda=async(req)=>{
     
     const parametro = req+" icon"
     const browser = await puppeteer.launch({    headless:false,
-    args: ["--no-sandbox"]})
+     args: ['--no-sandbox', '--disable-setuid-sandbox'] ,ignoreDefaultArgs: ['--disable-extensions']})
     const page = await browser.newPage()
     await page.goto("https://images.google.com/")
     await page.type('#APjFqb',parametro)
