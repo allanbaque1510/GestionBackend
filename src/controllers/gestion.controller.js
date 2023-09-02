@@ -1,5 +1,4 @@
 import Pass from "../models/Passwords.model.js";
-import { busqueda } from "../libs/scrapping.js";
 import Cryptr from "cryptr";
 export const getAllPasswords = async(req,res)=>{
     const cryptr = new Cryptr('CodeSecretAllanXd@123');
@@ -20,7 +19,7 @@ export const createPassword = async(req,res)=>{
     const cryptr = new Cryptr('CodeSecretAllanXd@123');
 
     const {user,email,password,site,Aplicacion} = req.body;
-    const imagen =await busqueda(Aplicacion)
+
     
     const passEncrypt = cryptr.encrypt(password)
     const userEncrypt = cryptr.encrypt(user)
@@ -33,7 +32,6 @@ export const createPassword = async(req,res)=>{
         password:passEncrypt,
         nameApp:Aplicacion,
         site,
-        imagen:imagen,
         status:1
     })
 
@@ -56,7 +54,7 @@ export const deletePassword = async(req,res)=>{
 export const updatePassword = async(req,res)=>{
     const cryptr = new Cryptr('CodeSecretAllanXd@123');
     const {user,email,password,site,nameApp} = req.body;
-    const imagen =await busqueda(nameApp)
+
     
     const passEncrypt = cryptr.encrypt(password)
     const userEncrypt = cryptr.encrypt(user)
@@ -68,7 +66,6 @@ export const updatePassword = async(req,res)=>{
         password:passEncrypt,
         nameApp,
         site,
-        imagen:imagen,
     })
     const data1 = await Pass.findOne({_id:req.params.id, status:1})
     if(!data1) return res.status(401).json({message:'No se encontro la contraseña'})
