@@ -9,7 +9,6 @@ import cors from 'cors'
 const app = express();
 
 app.use(cors({
-    origin:'https://gestion.up.railway.app:80',
     credentials:true
 }));
 app.use(morgan('dev'));
