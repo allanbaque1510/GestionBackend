@@ -7,9 +7,9 @@ import recordRoutes from './routes/record.routes.js'
 import cookieParser from "cookie-parser";
 import cors from 'cors'
 const app = express();
-const Cliente = process.env.FRONT_END ||'http://localhost:5173'
+
 app.use(cors({
-    origin:Cliente,
+    origin:'https://gestion.up.railway.app',
     credentials:true
 }));
 app.use(morgan('dev'));
