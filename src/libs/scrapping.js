@@ -3,7 +3,7 @@ import puppeteer from "puppeteer";
 export const busqueda=async(req)=>{
     
     const parametro = req+" icon"
-    const browser = await puppeteer.launch({    headless:false,
+    const browser = await puppeteer.launch({ 
      args: ['--no-sandbox', '--disable-setuid-sandbox'] ,ignoreDefaultArgs: ['--disable-extensions']})
     const page = await browser.newPage()
     await page.goto("https://images.google.com/")
